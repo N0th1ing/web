@@ -30,11 +30,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     } 
     elseif(!in_array($fileType, $allowedTypes))
     {
-        $error = "Doar imagini sunt permise!";
+        $error = "Doar imagini sunt permise";
     } 
     elseif($fileSize > 2 * 1024 * 1024)
     {
-        $error = "Fișierul este prea mare! Max 2MB.";
+        $error = "Fisierul este prea mare (max 2MB)";
     } 
     else 
     {
@@ -67,7 +67,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 <div class="container mt-5" style="max-width: 500px;">
     <div class="card shadow p-4">
-        <h1>Încărcare imagine</h1>
+        <h1>Incarcare imagine</h1>
 
         <?php if(isset($success)): ?>
             <div class="alert alert-success"><?= $success ?></div>
