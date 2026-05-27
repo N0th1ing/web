@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
     if($_FILES["file"]["error"] !== 0)
     {
-        $error = "Eroare la upload!";
+        $error = "Eroare la upload";
     } 
     elseif(!in_array($fileType, $allowedTypes))
     {
