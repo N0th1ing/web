@@ -29,7 +29,7 @@ if(!isset($_SESSION['user']))
 <body class="bg-light">
 
 <nav class="navbar navbar-dark bg-dark px-4 mb-4">
-    <span class="navbar-brand">Proiect</span><span class="text-white">Bună,<strong><?php echo $_SESSION['user']; ?></strong>!</span>
+    <span class="navbar-brand">Proiect WEB</span><span class="text-white">Buna, <strong><?php echo $_SESSION['user']; ?></strong>!</span>
     <div>
         <button class="btn btn-outline-primary btn-sm me-2" onclick="this.innerHTML=' ' + (parseInt(this.getAttribute('data-count') || 0) + 1) + ' Like'; this.setAttribute('data-count', parseInt(this.getAttribute('data-count') || 0) + 1)"> Like</button>
         <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost/site/main.php" target="_blank" class="btn btn-outline-light btn-sm me-2">Share</a>
