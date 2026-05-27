@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "clase.php";
 
 if(!isset($_SESSION['user']) && isset($_COOKIE['user_login']))
 {
@@ -29,7 +30,20 @@ if(!isset($_SESSION['user']))
 <body class="bg-light">
 
 <nav class="navbar navbar-dark bg-dark px-4 mb-4">
-    <span class="navbar-brand">Proiect WEB</span><span class="text-white">Buna, <strong><?php echo $_SESSION['user']; ?></strong>!</span>
+    <span class="navbar-brand">Proiect WEB</span><span class="text-white">Buna, 
+    <strong>
+        <?php
+            $userObj = new User($con);
+            $res = $userObj->getAll();
+            while($row = mysqli_fetch_assoc($res))
+            {
+                if($row['username'] == $_SESSION['user'])
+                {
+                    echo $row['username'];
+                }
+            }
+        ?>
+    </strong>!</span>
     <div>
         <button class="btn btn-outline-primary btn-sm me-2" onclick="this.innerHTML=' ' + (parseInt(this.getAttribute('data-count') || 0) + 1) + ' Like'; this.setAttribute('data-count', parseInt(this.getAttribute('data-count') || 0) + 1)"> Like</button>
         <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost/site/main.php" target="_blank" class="btn btn-outline-light btn-sm me-2">Share</a>
@@ -50,7 +64,6 @@ if(!isset($_SESSION['user']))
             <div class="card shadow p-3 h-100">
                 <h1 class="card-title">Imagini</h1>
                 <?php
-                    include "clase.php";
                     $imagine = new Imagine($con);
                     $result = $imagine->getAll();
                     
